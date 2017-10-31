@@ -9,7 +9,7 @@ colorscheme solarized
 "共享剪贴板
 set clipboard+=unnamed
 
-" 语法高亮 
+"语法高亮 
 syntax enable
 syntax on
 
@@ -118,5 +118,6 @@ func SetTitle()
 		call append(line(".")+19,"")
 		call append(line(".")+20,"	return 0;")
 		call append(line(".")+21,"}")
+		call append(line(".")+22,"")
 	endif
 endfunc
