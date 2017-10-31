@@ -1,5 +1,5 @@
 "新路径
-set runtimepath+=/Users/zip/.vim 
+set runtimepath+=~/.vim
 
 "配色
 syntax enable
