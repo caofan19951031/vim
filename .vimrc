@@ -36,7 +36,7 @@ set selectmode=mouse,key
 "编译
 map <F4> : call Compile()<CR>
 func! Compile()
-  if expand("%:e") == "cpp" || expand("%:e") == "cxx" || expand("%:e") == "cc" || expand("%:e") == "c++"
+  if expand("%:e") == "cpp"
     exec "w"
     exec "!g++ % -o %< -O2 -Wall -std=c++0x -DFCBRUCE"
   endif"
@@ -55,7 +55,7 @@ endfunc
 "运行
 map <F5> : call Run()<CR>
 func! Run()
-  if expand("%:e") == "cpp" || expand("%:e") == "cxx" || expand("%:e") == "cc" || expand("%:e") == "c++"
+  if expand("%:e") == "cpp"
     exec "w"
     exec "!time ./%<"
   endif
@@ -81,7 +81,7 @@ func! Run()
 endfunc
 
 "自动插入头文件
-autocmd BufNewFile *.cpp,*.py,*.java,*.cc,*.cxx,*.c++ exec ":call SetTitle()"
+autocmd BufNewFile *.cpp,*.py,*.java exec ":call SetTitle()"
 func SetTitle()
 	if expand("%:e") == "py"
 		call setline(1,"#")
@@ -101,7 +101,7 @@ func SetTitle()
 		call append(line(".")+5, " */")
 	endif
 
-	if expand("%:e") == "cc" || expand("%:e") == "cpp"
+	if expand("%:e") == "cpp"
 		call append(line(".")+6,"#include <iostream>")
 		call append(line(".")+7,"#include <cstring>")
 		call append(line(".")+8,"#include <cstdio>")
