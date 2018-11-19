@@ -1,6 +1,21 @@
 "新路径
 set runtimepath+=~/.vim
 
+"自动补全
+set completeopt=preview,menu
+
+"用空格代替制表符
+set expandtab
+
+"为C程序提供自动缩进
+set smartindent
+
+"继承前一行的缩进方式
+set autoindent
+
+"高亮显示匹配的括号
+"set showmatch
+
 "配色
 syntax enable
 set background=dark
@@ -35,7 +50,7 @@ map <F4> : call Compile()<CR>
 func! Compile()
   if expand("%:e") == "cpp"
     exec "w"
-    exec "!g++ % -o %< -O2 -Wall -std=c++0x -DFCBRUCE"
+    exec "!g++ % -o %< -O2 -Wall -std=c++0x"
   endif"
   
   if expand("%:e") == "c"
@@ -64,11 +79,7 @@ func! Run()
   
   if expand("%:e") == "java"
     exec "w"
-    if expand("%<") == "Main"
-      exec "!time java %< -DFCBRUCE"
-    else
-      exec "!time java %<"
-    endif
+    exec "!time java %<"
   endif
   
   if expand("%:e") == "py"
